@@ -1,16 +1,26 @@
 import React, {Component} from 'react';
+import Inventory from './Inventory';
+import SalesDetail from './SalesDetail';
+import CostDetail from './CostDetail';
+import ProfitLossStatement from './ProfitLossStatement';
+import BalanceSheet from './BalanceSheet';
+import CashFlow from './CashFlow';
 
 export default class Dashboard extends Component {
+
   render(){
     return(
       <div>
         <h2>Dashboard</h2>
-        <div>Inventory</div>
-        <div>Sales Detail</div>
-        <div>Cost Detail</div>
-        <div>Profit & Loss</div>
-        <div>Balance Sheet</div>
-        <div>Cash Flow</div>
+        <Inventory
+          products={this.props.products}
+          fixedAssumptions={this.props.fixedAssumptions}
+        />
+        <SalesDetail />
+        <CostDetail />
+        <ProfitLossStatement />
+        <BalanceSheet />
+        <CashFlow />
       </div>
     );
   }

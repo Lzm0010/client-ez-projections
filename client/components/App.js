@@ -105,7 +105,10 @@ export default class App extends Component {
            />
         </div>
         <div className="bottom">
-          <Dashboard />
+          <Dashboard
+            products={this.state.products}
+            fixedAssumptions={this.state.fixedAssumptions}
+           />
         </div>
       </div>
     );

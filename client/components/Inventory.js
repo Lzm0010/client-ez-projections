@@ -1,6 +1,5 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
-import {isEmpty} from '../helpers';
 
 export default class Inventory extends Component {
   constructor() {
@@ -10,45 +9,53 @@ export default class Inventory extends Component {
 
   renderInventory(key) {
     const product = this.props.products[key];
-    const fixedAssumptions = this.props.fixedAssumptions;
+    const unitsSoldRow = this.props.unitsSold(key);
+    const unitsRow = this.props.units(key,unitsSoldRow);
 
     return(
       <tbody key={key}>
         <tr>
           <td>{product.name}</td>
-          <td key="inventory0" ref="inventory0">{product.unitsPerOrder}</td>
-          {/* Loop for 2-36 units remaining */}
           {
-            _.times(35, i =>
-              <td key={`inventory${i+1}`} ref={`inventory${i+1}`}>i</td>
-            )
+            this.props.units(key, unitsSoldRow)[0]
+            .map((month, i) => {
+              return <td key={i}>{month}</td>
+            })
           }
         </tr>
         <tr>
           <td>Units Sold</td>
-          {/* Loop for units per store times (#of fixed stores/product inv t/o)*/}
           {
-            _.times(36, i =>
-              <td key={`unitssold${i}`}>{product.unitsPerStore * (fixedAssumptions.assumption1.value / product.inventoryTurnoverInMonths)}</td>
-            )
+            this.props.unitsSold(key)
+            .map((month, i) => {
+              return <td key={i}>{month}</td>
+            })
           }
         </tr>
         <tr>
           <td>Units Added</td>
+          {
+            this.props.units(key, unitsSoldRow)[2]
+            .map((month, i) => {
+              return <td key={i}>{month}</td>
+            })
+          }
         </tr>
         <tr>
           <td>Remaining</td>
+          {
+            this.props.units(key, unitsSoldRow)[1]
+            .map((month, i) => {
+              return <td key={i}>{month}</td>
+            })
+          }
         </tr>
       </tbody>
     );
   }
 
   render() {
-    const {products, fixedAssumptions} = this.props;
-
-    if( isEmpty(products) || isEmpty(fixedAssumptions) ) {
-      return <div>Missing Products or Assumptions</div>;
-    }
+    const {products} = this.props;
 
     return(
       <div>

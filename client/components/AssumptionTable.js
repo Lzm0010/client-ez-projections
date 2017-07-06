@@ -24,12 +24,12 @@ export default class AssumptionTable extends Component {
     return(
       <tr className="product-edit" key={key}>
         <td><input name="name" type="text" value={product.name} placeholder="Product Name" onChange={(e) => this.handleChange(e, key)} /></td>
-        <td><input name="price" type="text" value={product.price} placeholder="Price" onChange={(e) => this.handleChange(e, key)} /></td>
-        <td><input name="unitsPerStore" type="text" value={product.unitsPerStore} placeholder="Units per Store" onChange={(e) => this.handleChange(e, key)} /></td>
-        <td><input name="inventoryTurnoverInMonths" type="text" value={product.inventoryTurnoverInMonths} placeholder="Inventory Turnover in Months" onChange={(e) => this.handleChange(e, key)} /></td>
-        <td><input name="unitsPerOrder" type="text" value={product.unitsPerOrder} placeholder="Units per Order" onChange={(e) => this.handleChange(e, key)} /></td>
-        <td><input name="totalCost" type="text" value={product.totalCost} placeholder="Total Cost" onChange={(e) => this.handleChange(e, key)} /></td>
-        <td><input name="reorderPoint" type="text" value={product.reorderPoint} placeholder="Reorder Point" onChange={(e) => this.handleChange(e, key)} /></td>
+        <td><input name="price" type="number" value={product.price} placeholder="Price" onChange={(e) => this.handleChange(e, key)} /></td>
+        <td><input name="unitsPerStore" type="number" value={product.unitsPerStore} placeholder="Units per Store" onChange={(e) => this.handleChange(e, key)} /></td>
+        <td><input name="inventoryTurnoverInMonths" type="number" value={product.inventoryTurnoverInMonths} placeholder="Inventory Turnover in Months" onChange={(e) => this.handleChange(e, key)} /></td>
+        <td><input name="unitsPerOrder" type="number" value={product.unitsPerOrder} placeholder="Units per Order" onChange={(e) => this.handleChange(e, key)} /></td>
+        <td><input name="totalCost" type="number" value={product.totalCost} placeholder="Total Cost" onChange={(e) => this.handleChange(e, key)} /></td>
+        <td><input name="reorderPoint" type="number" value={product.reorderPoint} placeholder="Reorder Point" onChange={(e) => this.handleChange(e, key)} /></td>
         <td><button onClick={() => this.props.removeProduct(key)}>Remove Product</button></td>
       </tr>
     );

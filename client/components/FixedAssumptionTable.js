@@ -23,7 +23,8 @@ export default class FixedAssumptionTable extends Component {
     return(
       <tr className="assumption-edit" key={key}>
         <td><input name="name" type="text" value={fixedAssumption.name} placeholder="Assumption" onChange={(e) => this.handleChange(e, key)}/></td>
-        <td><input name="value" type="text" value={fixedAssumption.value} placeholder="Value" onChange={(e) => this.handleChange(e, key)}/></td>
+        <td><input name="value" type="number" value={fixedAssumption.value} placeholder="Value" onChange={(e) => this.handleChange(e, key)}/></td>
+        <td><input name="category" type="text" value={fixedAssumption.category} placeholder="Category" onChange={(e) => this.handleChange(e, key)}/></td>
         <td><button onClick={() => this.props.removeAssumption(key)}>Remove Assumption</button></td>
       </tr>
     );
@@ -38,6 +39,7 @@ export default class FixedAssumptionTable extends Component {
             <tr>
               <th>Assumption</th>
               <th>Value</th>
+              <th>Category</th>
             </tr>
           </thead>
           <tbody>

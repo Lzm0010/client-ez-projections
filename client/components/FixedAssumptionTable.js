@@ -10,10 +10,17 @@ export default class FixedAssumptionTable extends Component {
 
   handleChange(e, key) {
     const fixedAssumption = this.props.fixedAssumptions[key];
-
-    const updatedAssumption = {
-      ...fixedAssumption,
-      [e.target.name]: e.target.value
+    let updatedAssumption = {};
+    if (e.target.type === "number"){
+      updatedAssumption = {
+        ...fixedAssumption,
+        [e.target.name]: Number(e.target.value)
+      };
+    } else {
+      updatedAssumption = {
+        ...fixedAssumption,
+        [e.target.name]: e.target.value
+      };
     }
     this.props.updateAssumption(key, updatedAssumption);
   }

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {round} from '../helpers';
 import React, {Component} from 'react';
 
 export default class Inventory extends Component {
@@ -19,7 +20,7 @@ export default class Inventory extends Component {
           {
             this.props.units(key, unitsSoldRow)[0]
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>
@@ -28,7 +29,7 @@ export default class Inventory extends Component {
           {
             this.props.unitsSold(key)
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>
@@ -37,7 +38,7 @@ export default class Inventory extends Component {
           {
             this.props.units(key, unitsSoldRow)[2]
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>
@@ -46,7 +47,7 @@ export default class Inventory extends Component {
           {
             this.props.units(key, unitsSoldRow)[1]
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month,0)}</td>
             })
           }
         </tr>

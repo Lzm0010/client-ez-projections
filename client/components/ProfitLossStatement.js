@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {round} from '../helpers';
 import React, {Component} from 'react';
 
 export default class ProfitLossStatement extends Component {
@@ -49,7 +50,7 @@ export default class ProfitLossStatement extends Component {
           {
             this.props.monthlySales(key, unitsSoldRow)
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>
@@ -60,7 +61,7 @@ export default class ProfitLossStatement extends Component {
     return(
       this.props.totalIncome()
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -79,7 +80,7 @@ export default class ProfitLossStatement extends Component {
         {
           this.props.monthlyCost(key, costPerUnitRow, unitsSoldRow)
           .map((month, i) => {
-            return <td key={i}>{month}</td>
+            return <td key={i}>{round(month, 0)}</td>
           })
         }
       </tr>
@@ -90,7 +91,7 @@ export default class ProfitLossStatement extends Component {
     return(
       this.props.costOfAll()
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month, 0)}</td>
       })
     )
   }
@@ -102,7 +103,7 @@ export default class ProfitLossStatement extends Component {
     return(
       this.props.grossMargin(totalIncomeRow, costOfAllRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month, 0)}</td>
       })
     )
   }
@@ -115,7 +116,7 @@ export default class ProfitLossStatement extends Component {
         <td>{fixedAssumption.name}</td>
         {
           _.times(36, i =>
-            <td key={i}>{fixedAssumption.value}</td>
+            <td key={i}>{round(fixedAssumption.value,0)}</td>
           )
         }
       </tr>
@@ -130,7 +131,7 @@ export default class ProfitLossStatement extends Component {
         <td>{fixedAssumption.name}</td>
         {
           _.times(36, i =>
-            <td key={i}>{fixedAssumption.value}</td>
+            <td key={i}>{round(fixedAssumption.value,0)}</td>
           )
         }
       </tr>
@@ -141,7 +142,7 @@ export default class ProfitLossStatement extends Component {
     return(
       this.props.totalExpenses(this.filterExpenses, this.getExpensesArray)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -155,7 +156,7 @@ export default class ProfitLossStatement extends Component {
     return (
       this.props.ebitda(grossMarginRow, totalExpensesRow)
         .map((month, i) => {
-          return <td key={i}>{month}</td>
+          return <td key={i}>{round(month,0)}</td>
         })
     )
   }

@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {round} from '../helpers';
 import React, {Component} from 'react';
 
 export default class CostDetail extends Component {
@@ -22,7 +23,7 @@ export default class CostDetail extends Component {
           {
             this.props.unitsOrdered(key, unitsAddedRow)
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>
@@ -31,7 +32,7 @@ export default class CostDetail extends Component {
           {
             this.props.totalCost(key, unitsOrderedRow)
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>
@@ -40,7 +41,7 @@ export default class CostDetail extends Component {
           {
             this.props.costPerUnit(key, unitsOrderedRow, totalCostRow)
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>
@@ -49,7 +50,7 @@ export default class CostDetail extends Component {
           {
             this.props.monthlyCost(key, costPerUnitRow, unitsSoldRow)
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>

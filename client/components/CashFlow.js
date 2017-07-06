@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {round} from '../helpers';
 import React, {Component} from 'react';
 
 export default class CashFlow extends Component {
@@ -66,7 +67,7 @@ export default class CashFlow extends Component {
     return(
       this.props.cash(netCashRow, equityRow)[0]
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -75,7 +76,7 @@ export default class CashFlow extends Component {
     return(
       this.props.totalIncome()
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -87,7 +88,7 @@ export default class CashFlow extends Component {
     return (
       this.props.changeInAR(arRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -100,7 +101,7 @@ export default class CashFlow extends Component {
     return(
       this.props.totalCashInflows(changeInArRow, totalIncomeRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -112,7 +113,7 @@ export default class CashFlow extends Component {
     return(
       this.props.changeInInv(invRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -125,7 +126,7 @@ export default class CashFlow extends Component {
     return (
       this.props.changeInAP(apRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -134,7 +135,7 @@ export default class CashFlow extends Component {
     return(
       this.props.costOfAll()
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -143,7 +144,7 @@ export default class CashFlow extends Component {
     return (
       this.props.totalExpenses(this.filterExpenses, this.getExpensesArray)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -160,7 +161,7 @@ export default class CashFlow extends Component {
     return (
       this.props.totalCashOutFlows(changeInvRow, changeApRow, costOfAllRow, totalExpensesRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -183,7 +184,7 @@ export default class CashFlow extends Component {
     return (
       this.props.netCashFlow(cashInRow, cashOutRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -192,7 +193,7 @@ export default class CashFlow extends Component {
     return (
       this.props.equityFinancing()
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -218,7 +219,7 @@ export default class CashFlow extends Component {
     return(
       this.props.cash(netCashRow, equityRow)[1]
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }

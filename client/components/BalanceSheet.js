@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {round} from '../helpers';
 import React, {Component} from 'react';
 
 export default class BalanceSheet extends Component {
@@ -63,7 +64,7 @@ export default class BalanceSheet extends Component {
     return(
       this.props.cash(netCashRow, equityRow)[1]
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -74,7 +75,7 @@ export default class BalanceSheet extends Component {
     return(
       this.props.actRec(totalIncomeRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -85,7 +86,7 @@ export default class BalanceSheet extends Component {
     return(
       this.props.inv(costOfAllRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -112,7 +113,7 @@ export default class BalanceSheet extends Component {
     return(
       this.props.totalCurrentAssets(cashRow, arRow, invRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month, 0)}</td>
       })
     )
   }
@@ -124,7 +125,7 @@ export default class BalanceSheet extends Component {
     return(
       this.props.actPay(costOfAllRow, totalExpensesRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -135,7 +136,7 @@ export default class BalanceSheet extends Component {
     return(
       this.props.capitalStock(equityRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -150,7 +151,7 @@ export default class BalanceSheet extends Component {
     return(
       this.props.retainedEarnings(ebitdaRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -169,7 +170,7 @@ export default class BalanceSheet extends Component {
     return(
       this.props.totalEquity(capitalStockRow, retainedEarningsRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }
@@ -192,7 +193,7 @@ export default class BalanceSheet extends Component {
     return (
       this.props.totalLiabilityAndEquity(totalLiabilityRow, totalEquityRow)
       .map((month, i) => {
-        return <td key={i}>{month}</td>
+        return <td key={i}>{round(month,0)}</td>
       })
     )
   }

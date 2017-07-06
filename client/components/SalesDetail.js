@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import {round} from '../helpers';
 import React, {Component} from 'react';
 
 export default class SalesDetail extends Component {
@@ -18,7 +19,7 @@ export default class SalesDetail extends Component {
           {
             this.props.monthlySales(key, unitsSoldRow)
             .map((month, i) => {
-              return <td key={i}>{month}</td>
+              return <td key={i}>{round(month, 0)}</td>
             })
           }
         </tr>

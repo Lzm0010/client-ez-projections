@@ -11,13 +11,23 @@ export default class AssumptionTable extends Component {
 
   handleChange(e, key) {
     const product = this.props.products[key];
-
-    const updatedProduct = {
-      ...product,
-      [e.target.name]: e.target.value
+    let updatedProduct = {};
+    if (e.target.type === "number"){
+      updatedProduct = {
+        ...product,
+        [e.target.name]: Number(e.target.value)
+      };
+    } else {
+      updatedProduct = {
+        ...product,
+        [e.target.name]: e.target.value
+      };
     }
     this.props.updateProduct(key, updatedProduct);
   }
+
+
+//DO I PUT NUMBER() here inside of value? or in handleChange as an if statement for target value based on type??
 
   renderAssumptionTable(key) {
     const product = this.props.products[key];

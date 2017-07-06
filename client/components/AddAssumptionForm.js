@@ -5,7 +5,7 @@ export default class AddAssumptionForm extends Component {
     event.preventDefault();
     const assumption = {
       name: this.name.value,
-      value: this.value.value,
+      value: Number(this.value.value),
       category: this.category.value
     }
     this.props.addAssumption(assumption);
@@ -16,7 +16,7 @@ export default class AddAssumptionForm extends Component {
     return (
       <form ref={(input) => this.assumptionForm = input} className="assumption-edit" onSubmit={(e) => this.createAssumption(e)}>
         <input ref={(input) => this.name = input} type="text" placeholder="Name" />
-        <input ref={(input) => this.value = input} type="text" placeholder="Value"/>
+        <input ref={(input) => this.value = input} type="number" placeholder="Value"/>
         <input ref={(input) => this.category = input} type="text" placeholder="Category"/>
         <button type="submit">+ Add Assumption</button>
       </form>

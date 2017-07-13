@@ -32,7 +32,7 @@ export default class FixedAssumptionTable extends Component {
         <td><input name="name" type="text" value={fixedAssumption.name} placeholder="Assumption" onChange={(e) => this.handleChange(e, key)}/></td>
         <td><input name="value" type="number" value={fixedAssumption.value} placeholder="Value" onChange={(e) => this.handleChange(e, key)}/></td>
         <td><input name="category" type="text" value={fixedAssumption.category} placeholder="Category" onChange={(e) => this.handleChange(e, key)}/></td>
-        <td><button onClick={() => this.props.removeAssumption(key)}>Remove Assumption</button></td>
+        <td><button className="delete-button" onClick={() => this.props.removeAssumption(key)}>x</button></td>
       </tr>
     );
   }

@@ -88,27 +88,33 @@ export default class App extends Component {
     return(
       <div>
         <Header />
-        <div className="top">
-          <AssumptionTable
-            products={this.state.products}
-            addProduct={this.addProduct}
-            loadSampleProducts={this.loadSampleProducts}
-            updateProduct={this.updateProduct}
-            removeProduct={this.removeProduct}
-          />
-          <FixedAssumptionTable
-            fixedAssumptions={this.state.fixedAssumptions}
-            addAssumption={this.addAssumption}
-            loadSampleAssumptions={this.loadSampleAssumptions}
-            updateAssumption={this.updateAssumption}
-            removeAssumption={this.removeAssumption}
-           />
-        </div>
-        <div className="bottom">
-          <Dashboard
-            products={this.state.products}
-            fixedAssumptions={this.state.fixedAssumptions}
-           />
+        <div className="page-wrap">
+          <div className="top">
+            <div className="assumptionTable">
+              <AssumptionTable
+                products={this.state.products}
+                addProduct={this.addProduct}
+                loadSampleProducts={this.loadSampleProducts}
+                updateProduct={this.updateProduct}
+                removeProduct={this.removeProduct}
+              />
+            </div>
+            <div className="fixedAssumptionTable">
+              <FixedAssumptionTable
+                fixedAssumptions={this.state.fixedAssumptions}
+                addAssumption={this.addAssumption}
+                loadSampleAssumptions={this.loadSampleAssumptions}
+                updateAssumption={this.updateAssumption}
+                removeAssumption={this.removeAssumption}
+               />
+             </div>
+           </div>
+           <div>
+            <Dashboard
+              products={this.state.products}
+              fixedAssumptions={this.state.fixedAssumptions}
+             />
+           </div>
         </div>
       </div>
     );

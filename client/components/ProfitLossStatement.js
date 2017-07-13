@@ -165,7 +165,7 @@ export default class ProfitLossStatement extends Component {
     const {products, fixedAssumptions} = this.props;
 
     return(
-      <div>
+      <div className="profitLossStatement">
         <h3>Profit & Loss Statement</h3>
         <table>
           <thead>

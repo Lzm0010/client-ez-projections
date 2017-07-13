@@ -202,7 +202,7 @@ export default class BalanceSheet extends Component {
     const {products} = this.props;
 
     return(
-      <div>
+      <div className="balanceSheet">
         <h3>Balance Sheet</h3>
         <table>
           <thead>

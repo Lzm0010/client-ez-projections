@@ -368,107 +368,119 @@ export default class Dashboard extends Component {
     const {products, fixedAssumptions} = this.props;
 
     if( isEmpty(products) || isEmpty(fixedAssumptions) ) {
-      return <div>Missing Products or Assumptions</div>;
+      return <h4>Missing Products or Assumptions</h4>;
     }
 
     return(
-      <div>
+      <div className="dashboard">
         <h2>Dashboard</h2>
-        <Inventory
-          products={this.props.products}
-          fixedAssumptions={this.props.fixedAssumptions}
-          units = {this.units}
-          unitsSold={this.unitsSold}
-        />
-        <SalesDetail
-          products={this.props.products}
-          fixedAssumptions={this.props.fixedAssumptions}
-          unitsSold={this.unitsSold}
-          monthlySales={this.monthlySales}
-        />
-        <CostDetail
-          products={this.props.products}
-          fixedAssumptions={this.props.fixedAssumptions}
-          units={this.units}
-          unitsSold={this.unitsSold}
-          unitsOrdered={this.unitsOrdered}
-          totalCost={this.totalCost}
-          costPerUnit={this.costPerUnit}
-          monthlyCost={this.monthlyCost}
-         />
-        <ProfitLossStatement
-          products={this.props.products}
-          fixedAssumptions={this.props.fixedAssumptions}
-          units={this.units}
-          unitsSold={this.unitsSold}
-          unitsOrdered={this.unitsOrdered}
-          totalCost={this.totalCost}
-          costOfAll={this.costOfAll}
-          costPerUnit={this.costPerUnit}
-          monthlySales={this.monthlySales}
-          monthlyCost={this.monthlyCost}
-          totalIncome={this.totalIncome}
-          grossMargin={this.grossMargin}
-          totalExpenses={this.totalExpenses}
-          ebitda={this.ebitda}
-        />
-        <BalanceSheet
-          products={this.props.products}
-          fixedAssumptions={this.props.fixedAssumptions}
-          totalIncome={this.totalIncome}
-          actRec={this.actRec}
-          unitsSold={this.unitsSold}
-          units={this.units}
-          totalCost={this.totalCost}
-          costPerUnit={this.costPerUnit}
-          monthlyCost={this.monthlyCost}
-          unitsOrdered={this.unitsOrdered}
-          monthlySales={this.monthlySales}
-          costOfAll={this.costOfAll}
-          inv={this.inv}
-          actPay={this.actPay}
-          totalExpenses={this.totalExpenses}
-          equityFinancing={this.equityFinancing}
-          capitalStock={this.capitalStock}
-          grossMargin={this.grossMargin}
-          ebitda={this.ebitda}
-          retainedEarnings={this.retainedEarnings}
-          totalEquity={this.totalEquity}
-          totalLiabilityAndEquity={this.totalLiabilityAndEquity}
-          cash={this.cash}
-          changeInAR={this.changeInAR}
-          totalCashInflows={this.totalCashInflows}
-          changeInInv={this.changeInInv}
-          changeInAP={this.changeInAP}
-          totalCashOutFlows={this.totalCashOutFlows}
-          netCashFlow={this.netCashFlow}
-          totalCurrentAssets={this.totalCurrentAssets}
-        />
-        <CashFlow
-          products={this.props.products}
-          fixedAssumptions={this.props.fixedAssumptions}
-          totalIncome={this.totalIncome}
-          unitsSold={this.unitsSold}
-          monthlySales={this.monthlySales}
-          units={this.units}
-          unitsOrdered={this.unitsOrdered}
-          totalCost={this.totalCost}
-          costPerUnit={this.costPerUnit}
-          monthlyCost={this.monthlyCost}
-          costOfAll={this.costOfAll}
-          totalExpenses={this.totalExpenses}
-          equityFinancing={this.equityFinancing}
-          actRec={this.actRec}
-          changeInAR={this.changeInAR}
-          totalCashInflows={this.totalCashInflows}
-          inv={this.inv}
-          changeInInv={this.changeInInv}
-          actPay={this.actPay}
-          changeInAP={this.changeInAP}
-          totalCashOutFlows={this.totalCashOutFlows}
-          netCashFlow={this.netCashFlow}
-          cash={this.cash}
-        />
+        <div className="dashboard-item">
+          <Inventory
+            products={this.props.products}
+            fixedAssumptions={this.props.fixedAssumptions}
+            units = {this.units}
+            unitsSold={this.unitsSold}
+          />
+        </div>
+        <div className="dashboard-item">
+          <SalesDetail
+            products={this.props.products}
+            fixedAssumptions={this.props.fixedAssumptions}
+            unitsSold={this.unitsSold}
+            monthlySales={this.monthlySales}
+          />
+        </div>
+        <div className="dashboard-item">
+          <CostDetail
+            products={this.props.products}
+            fixedAssumptions={this.props.fixedAssumptions}
+            units={this.units}
+            unitsSold={this.unitsSold}
+            unitsOrdered={this.unitsOrdered}
+            totalCost={this.totalCost}
+            costPerUnit={this.costPerUnit}
+            monthlyCost={this.monthlyCost}
+          />
+        </div>
+        <div className="dashboard-item">
+          <ProfitLossStatement
+            products={this.props.products}
+            fixedAssumptions={this.props.fixedAssumptions}
+            units={this.units}
+            unitsSold={this.unitsSold}
+            unitsOrdered={this.unitsOrdered}
+            totalCost={this.totalCost}
+            costOfAll={this.costOfAll}
+            costPerUnit={this.costPerUnit}
+            monthlySales={this.monthlySales}
+            monthlyCost={this.monthlyCost}
+            totalIncome={this.totalIncome}
+            grossMargin={this.grossMargin}
+            totalExpenses={this.totalExpenses}
+            ebitda={this.ebitda}
+          />
+        </div>
+        <div className="dashboard-item">
+          <BalanceSheet
+            products={this.props.products}
+            fixedAssumptions={this.props.fixedAssumptions}
+            totalIncome={this.totalIncome}
+            actRec={this.actRec}
+            unitsSold={this.unitsSold}
+            units={this.units}
+            totalCost={this.totalCost}
+            costPerUnit={this.costPerUnit}
+            monthlyCost={this.monthlyCost}
+            unitsOrdered={this.unitsOrdered}
+            monthlySales={this.monthlySales}
+            costOfAll={this.costOfAll}
+            inv={this.inv}
+            actPay={this.actPay}
+            totalExpenses={this.totalExpenses}
+            equityFinancing={this.equityFinancing}
+            capitalStock={this.capitalStock}
+            grossMargin={this.grossMargin}
+            ebitda={this.ebitda}
+            retainedEarnings={this.retainedEarnings}
+            totalEquity={this.totalEquity}
+            totalLiabilityAndEquity={this.totalLiabilityAndEquity}
+            cash={this.cash}
+            changeInAR={this.changeInAR}
+            totalCashInflows={this.totalCashInflows}
+            changeInInv={this.changeInInv}
+            changeInAP={this.changeInAP}
+            totalCashOutFlows={this.totalCashOutFlows}
+            netCashFlow={this.netCashFlow}
+            totalCurrentAssets={this.totalCurrentAssets}
+          />
+        </div>
+        <div className="dashboard-item">
+          <CashFlow
+            products={this.props.products}
+            fixedAssumptions={this.props.fixedAssumptions}
+            totalIncome={this.totalIncome}
+            unitsSold={this.unitsSold}
+            monthlySales={this.monthlySales}
+            units={this.units}
+            unitsOrdered={this.unitsOrdered}
+            totalCost={this.totalCost}
+            costPerUnit={this.costPerUnit}
+            monthlyCost={this.monthlyCost}
+            costOfAll={this.costOfAll}
+            totalExpenses={this.totalExpenses}
+            equityFinancing={this.equityFinancing}
+            actRec={this.actRec}
+            changeInAR={this.changeInAR}
+            totalCashInflows={this.totalCashInflows}
+            inv={this.inv}
+            changeInInv={this.changeInInv}
+            actPay={this.actPay}
+            changeInAP={this.changeInAP}
+            totalCashOutFlows={this.totalCashOutFlows}
+            netCashFlow={this.netCashFlow}
+            cash={this.cash}
+          />
+        </div>
       </div>
     );
   }

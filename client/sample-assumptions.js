@@ -40,7 +40,7 @@ const assumptions = {
     category: "expense"
   },
   assumption8: {
-    name: "Office Expense & Supplies",
+    name: "Office Exp & Supplies",
     value: 200,
     category: "expense"
   },
@@ -90,12 +90,12 @@ const assumptions = {
     category: "cash"
   },
   assumption18: {
-    name: "Avg Accounts Receivable Days",
+    name: "Avg Act Receivable Days",
     value: 30,
     category: "cash"
   },
   assumption19: {
-    name: "Avg Accounts Payable Days",
+    name: "Avg Act Payable Days",
     value: 30,
     category: "cash"
   },

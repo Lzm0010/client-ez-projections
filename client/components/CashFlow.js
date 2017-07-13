@@ -228,7 +228,7 @@ export default class CashFlow extends Component {
     const {products, fixedAssumptions} = this.props;
 
     return(
-      <div>
+      <div className="cashFlow">
         <h3>Cash Flow Statement</h3>
         <table>
           <thead>

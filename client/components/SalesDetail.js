@@ -31,7 +31,7 @@ export default class SalesDetail extends Component {
     const {products} = this.props;
 
     return(
-      <div>
+      <div className="salesDetail">
         <h3>Sales Detail</h3>
         <table>
           <thead>

@@ -40,7 +40,7 @@ export default class AssumptionTable extends Component {
         <td><input name="unitsPerOrder" type="number" value={product.unitsPerOrder} placeholder="Units per Order" onChange={(e) => this.handleChange(e, key)} /></td>
         <td><input name="totalCost" type="number" value={product.totalCost} placeholder="Total Cost" onChange={(e) => this.handleChange(e, key)} /></td>
         <td><input name="reorderPoint" type="number" value={product.reorderPoint} placeholder="Reorder Point" onChange={(e) => this.handleChange(e, key)} /></td>
-        <td><button onClick={() => this.props.removeProduct(key)}>Remove Product</button></td>
+        <td><button className="delete-button" onClick={() => this.props.removeProduct(key)}>x</button></td>
       </tr>
     );
   }
@@ -56,7 +56,7 @@ export default class AssumptionTable extends Component {
               <th>Name</th>
               <th>Price</th>
               <th>Units Per Store</th>
-              <th>Inventory Turnover In Months</th>
+              <th>Inv Turnover In Months</th>
               <th>Units Per Order</th>
               <th>Total Cost</th>
               <th>Reorder Point</th>
@@ -67,6 +67,7 @@ export default class AssumptionTable extends Component {
               Object.keys(this.props.products)
               .map(this.renderAssumptionTable)
             }
+
           </tbody>
         </table>
         <AddProductForm addProduct={this.props.addProduct} />

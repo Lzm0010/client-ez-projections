@@ -59,7 +59,7 @@ export default class Inventory extends Component {
     const {products} = this.props;
 
     return(
-      <div>
+      <div className="inventory">
         <h3>Inventory</h3>
         <table>
           <thead>

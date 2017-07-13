@@ -18,7 +18,7 @@ export default class AddAssumptionForm extends Component {
         <input ref={(input) => this.name = input} type="text" placeholder="Name" />
         <input ref={(input) => this.value = input} type="number" placeholder="Value"/>
         <input ref={(input) => this.category = input} type="text" placeholder="Category"/>
-        <button type="submit">+ Add Assumption</button>
+        <button className="add-button" type="submit">+</button>
       </form>
     );
   }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import AddProductForm from './AddProductForm';
-import Product from './Product';
+// import Product from './Product';
 
 export default class AssumptionTable extends Component {
   constructor() {
@@ -25,9 +25,6 @@ export default class AssumptionTable extends Component {
     }
     this.props.updateProduct(key, updatedProduct);
   }
-
-
-//DO I PUT NUMBER() here inside of value? or in handleChange as an if statement for target value based on type??
 
   renderAssumptionTable(key) {
     const product = this.props.products[key];

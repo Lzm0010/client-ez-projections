@@ -2,9 +2,11 @@ import React, {Component} from 'react';
 import Header from './Header';
 import AssumptionTable from './AssumptionTable';
 import FixedAssumptionTable from './FixedAssumptionTable';
+import EmployeeTable from './EmployeeTable';
 import Dashboard from './Dashboard';
 import sampleProducts from '../sample-products';
 import sampleAssumptions from '../sample-assumptions';
+import sampleEmployees from '../sample-employees';
 
 export default class App extends Component {
   constructor() {
@@ -22,9 +24,16 @@ export default class App extends Component {
     this.updateAssumption = this.updateAssumption.bind(this);
     this.removeAssumption = this.removeAssumption.bind(this);
 
+    //employee methods
+    this.addEmployee = this.addEmployee.bind(this);
+    this.loadSampleEmployees = this.loadSampleEmployees.bind(this);
+    this.updateEmployee = this.updateEmployee.bind(this);
+    this.removeEmployee = this.removeEmployee.bind(this);
+
     this.state = {
       products: {},
-      fixedAssumptions: {}
+      fixedAssumptions: {},
+      employees: {}
     };
   }
 
@@ -84,6 +93,32 @@ export default class App extends Component {
     this.setState({fixedAssumptions});
   }
 
+  //employee methods
+  addEmployee(employee) {
+    const employees = {...this.state.employees};
+    const timestamp = Date.now();
+    employees[`employee-${timestamp}`] = employee;
+    this.setState({employees});
+  }
+
+  loadSampleEmployees() {
+    this.setState({
+      employees: sampleEmployees
+    });
+  }
+
+  updateEmployee(key, updatedEmployee) {
+    const employees = {...this.state.employees};
+    employees[key] = updatedEmployee;
+    this.setState({employees});
+  }
+
+  removeEmployee(key) {
+    const employees = {...this.state.employees};
+    delete employees[key];
+    this.setState({employees});
+  }
+
   render() {
     return(
       <div>
@@ -106,6 +141,15 @@ export default class App extends Component {
                 loadSampleAssumptions={this.loadSampleAssumptions}
                 updateAssumption={this.updateAssumption}
                 removeAssumption={this.removeAssumption}
+               />
+             </div>
+             <div className="employeeTable">
+               <EmployeeTable
+                 employees={this.state.employees}
+                 addEmployee={this.addEmployee}
+                 loadSampleEmployees={this.loadSampleEmployees}
+                 updateEmployee={this.updateEmployee}
+                 removeEmployee={this.removeEmployee}
                />
              </div>
            </div>

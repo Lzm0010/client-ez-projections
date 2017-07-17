@@ -159,6 +159,27 @@ export default class Dashboard extends Component {
     });
   }
 
+  //total sales related expenses
+  totalSalesExpenses(totalIncomeRow, filterExpenses, getExpensesArray){
+    const assumptionIds = Object.keys(this.fixedAssumptions);
+    const assumptionArrayList = assumptionIds.filter(filterExpenses)
+      .map(getExpensesArray);
+    const salesExpArrays = assumptionArrayList.map((array, i) => {
+      return array.map((number, i ) => {
+        return number = (number * 0.01) * totalIncomeRow[i];
+      });
+    });
+
+    const totalExpenseRow = salesExpArrays.reduce((total, array) => {
+      array.forEach((number, i) => {
+        total[i]=(total[i] || 0) + number;
+      });
+      return total;
+    }, []);
+
+    return totalExpenseRow;
+  }
+
   //fixed expenses
   totalExpenses(filterExpenses, getExpensesArray){
     const assumptionIds = Object.keys(this.fixedAssumptions);
@@ -416,6 +437,7 @@ export default class Dashboard extends Component {
             monthlyCost={this.monthlyCost}
             totalIncome={this.totalIncome}
             grossMargin={this.grossMargin}
+            totalSalesExpenses={this.totalSalesExpenses}
             totalExpenses={this.totalExpenses}
             ebitda={this.ebitda}
           />
@@ -437,6 +459,7 @@ export default class Dashboard extends Component {
             inv={this.inv}
             actPay={this.actPay}
             totalExpenses={this.totalExpenses}
+            totalSalesExpenses={this.totalSalesExpenses}
             equityFinancing={this.equityFinancing}
             capitalStock={this.capitalStock}
             grossMargin={this.grossMargin}
@@ -468,6 +491,7 @@ export default class Dashboard extends Component {
             monthlyCost={this.monthlyCost}
             costOfAll={this.costOfAll}
             totalExpenses={this.totalExpenses}
+            totalSalesExpenses={this.totalSalesExpenses}
             equityFinancing={this.equityFinancing}
             actRec={this.actRec}
             changeInAR={this.changeInAR}

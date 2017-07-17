@@ -53,7 +53,11 @@ export default class BalanceSheet extends Component {
     const invRow = this.props.inv(costOfAllRow);
     const changeInvRow = this.props.changeInInv(invRow);
 
-    const totalExpensesRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const fixedExpRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const salesExpRow = this.props.totalSalesExpenses(totalIncomeRow, this.filterSales, this.getExpensesArray);
+    const totalExpensesRow = salesExpRow.map((number, i) => {
+      return number = number + fixedExpRow[i];
+    });
     const apRow = this.props.actPay(costOfAllRow, totalExpensesRow);
     const changeApRow = this.props.changeInAP(apRow);
     const cashOutRow = this.props.totalCashOutFlows(changeInvRow, changeApRow, costOfAllRow, totalExpensesRow);
@@ -101,7 +105,11 @@ export default class BalanceSheet extends Component {
     const invRow = this.props.inv(costOfAllRow);
     const changeInvRow = this.props.changeInInv(invRow);
 
-    const totalExpensesRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const fixedExpRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const salesExpRow = this.props.totalSalesExpenses(totalIncomeRow, this.filterSales, this.getExpensesArray);
+    const totalExpensesRow = salesExpRow.map((number, i) => {
+      return number = number + fixedExpRow[i];
+    });
     const apRow = this.props.actPay(costOfAllRow, totalExpensesRow);
     const changeApRow = this.props.changeInAP(apRow);
     const cashOutRow = this.props.totalCashOutFlows(changeInvRow, changeApRow, costOfAllRow, totalExpensesRow);
@@ -119,8 +127,13 @@ export default class BalanceSheet extends Component {
   }
 
   renderAP(){
+    const totalIncomeRow = this.props.totalIncome();
     const costOfAllRow = this.props.costOfAll();
-    const totalExpensesRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const fixedExpRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const salesExpRow = this.props.totalSalesExpenses(totalIncomeRow, this.filterSales, this.getExpensesArray);
+    const totalExpensesRow = salesExpRow.map((number, i) => {
+      return number = number + fixedExpRow[i];
+    });
 
     return(
       this.props.actPay(costOfAllRow, totalExpensesRow)
@@ -145,7 +158,11 @@ export default class BalanceSheet extends Component {
     const totalIncomeRow = this.props.totalIncome();
     const costOfAllRow = this.props.costOfAll();
     const grossMarginRow = this.props.grossMargin(totalIncomeRow, costOfAllRow);
-    const totalExpensesRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const fixedExpRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const salesExpRow = this.props.totalSalesExpenses(totalIncomeRow, this.filterSales, this.getExpensesArray);
+    const totalExpensesRow = salesExpRow.map((number, i) => {
+      return number = number + fixedExpRow[i];
+    });
     const ebitdaRow = this.props.ebitda(grossMarginRow, totalExpensesRow);
 
     return(
@@ -163,7 +180,11 @@ export default class BalanceSheet extends Component {
     const totalIncomeRow = this.props.totalIncome();
     const costOfAllRow = this.props.costOfAll();
     const grossMarginRow = this.props.grossMargin(totalIncomeRow, costOfAllRow);
-    const totalExpensesRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const fixedExpRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const salesExpRow = this.props.totalSalesExpenses(totalIncomeRow, this.filterSales, this.getExpensesArray);
+    const totalExpensesRow = salesExpRow.map((number, i) => {
+      return number = number + fixedExpRow[i];
+    });
     const ebitdaRow = this.props.ebitda(grossMarginRow, totalExpensesRow);
     const retainedEarningsRow = this.props.retainedEarnings(ebitdaRow);
 
@@ -176,14 +197,18 @@ export default class BalanceSheet extends Component {
   }
 
   renderTotalLiabilityAndEquity(){
+    const totalIncomeRow = this.props.totalIncome();
     const costOfAllRow = this.props.costOfAll();
-    const totalExpensesRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const fixedExpRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const salesExpRow = this.props.totalSalesExpenses(totalIncomeRow, this.filterSales, this.getExpensesArray);
+    const totalExpensesRow = salesExpRow.map((number, i) => {
+      return number = number + fixedExpRow[i];
+    });
     const totalLiabilityRow = this.props.actPay(costOfAllRow, totalExpensesRow);
 
     const equityRow = this.props.equityFinancing();
     const capitalStockRow = this.props.capitalStock(equityRow);
 
-    const totalIncomeRow = this.props.totalIncome();
     const grossMarginRow = this.props.grossMargin(totalIncomeRow, costOfAllRow);
     const ebitdaRow = this.props.ebitda(grossMarginRow, totalExpensesRow);
     const retainedEarningsRow = this.props.retainedEarnings(ebitdaRow);

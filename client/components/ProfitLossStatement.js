@@ -110,14 +110,18 @@ export default class ProfitLossStatement extends Component {
 
   renderSalesExpenses(key) {
     const fixedAssumption = this.props.fixedAssumptions[key];
+    const totalIncomeRow = this.props.totalIncome();
+    const saleExpRow = totalIncomeRow.map((number, i) => {
+      return number = number * (fixedAssumption.value * 0.01);
+    });
 
     return(
       <tr key={key}>
         <td>{fixedAssumption.name}</td>
         {
-          _.times(36, i =>
-            <td key={i}>{round(fixedAssumption.value,0)}</td>
-          )
+          saleExpRow.map((month, i) => {
+            return <td key={i}>{round(month,0)}</td>
+          })
         }
       </tr>
     )
@@ -139,9 +143,15 @@ export default class ProfitLossStatement extends Component {
   }
 
   renderTotalExpenses(){
+    const totalIncomeRow = this.props.totalIncome();
+    const fixedExpRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const salesExpRow = this.props.totalSalesExpenses(totalIncomeRow, this.filterSales, this.getExpensesArray);
+    const totalExpRow = salesExpRow.map((number, i) => {
+      return number = number + fixedExpRow[i];
+    });
+
     return(
-      this.props.totalExpenses(this.filterExpenses, this.getExpensesArray)
-      .map((month, i) => {
+      totalExpRow.map((month, i) => {
         return <td key={i}>{round(month,0)}</td>
       })
     )
@@ -151,7 +161,11 @@ export default class ProfitLossStatement extends Component {
     const totalIncomeRow = this.props.totalIncome();
     const costOfAllRow = this.props.costOfAll();
     const grossMarginRow = this.props.grossMargin(totalIncomeRow, costOfAllRow);
-    const totalExpensesRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const fixedExpRow = this.props.totalExpenses(this.filterExpenses, this.getExpensesArray);
+    const salesExpRow = this.props.totalSalesExpenses(totalIncomeRow, this.filterSales, this.getExpensesArray);
+    const totalExpensesRow = salesExpRow.map((number, i) => {
+      return number = number + fixedExpRow[i];
+    });
 
     return (
       this.props.ebitda(grossMarginRow, totalExpensesRow)

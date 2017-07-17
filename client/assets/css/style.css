@@ -77,6 +77,11 @@ input:not(:focus){
   text-align: right;
 }
 
+.employee-input {
+  width: 31px;
+  margin: 0px;
+}
+
 /*END OF FORMSSSSS*/
 /*END OF FORMSSSSS*/
 /*END OF FORMSSSSS*/

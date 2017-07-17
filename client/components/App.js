@@ -157,6 +157,7 @@ export default class App extends Component {
             <Dashboard
               products={this.state.products}
               fixedAssumptions={this.state.fixedAssumptions}
+              employees={this.state.employees}
              />
            </div>
         </div>

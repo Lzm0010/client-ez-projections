@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import {isEmpty} from '../helpers';
+import EmployeeInfo from './EmployeeInfo';
 import Inventory from './Inventory';
 import SalesDetail from './SalesDetail';
 import CostDetail from './CostDetail';
@@ -395,6 +396,11 @@ export default class Dashboard extends Component {
     return(
       <div className="dashboard">
         <h2>Dashboard</h2>
+        <div className="dashboard-item">
+          <EmployeeInfo
+            employees={this.props.employees}
+          />
+        </div>
         <div className="dashboard-item">
           <Inventory
             products={this.props.products}
